@@ -1,0 +1,43 @@
+.container{
+    width: 900px;
+    background-color: silver;
+    margin: 0px auto;
+    padding: 5px;
+}
+.container div{
+    margin: 20px;
+}
+ h1{
+    text-align: center;
+}
+p{
+    text-align: center;
+}
+img {
+    height: 200px;
+}
+.blue_bg {
+    height: 250px;
+    background-color: skyblue;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+.pink_bg {
+    height: 250px;
+    background-color: lightpink;
+    display: flex;
+    align-items: center;
+    justify-content: space-between ;
+    padding-left: 200px;
+    padding-right: 200px;
+    
+}
+.white_bg {
+    height: 250px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
