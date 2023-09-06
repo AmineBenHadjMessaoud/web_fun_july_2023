@@ -1,0 +1,33 @@
+.container{
+    justify-content: center;
+    align-items: center;
+display: flex;
+}
+#card{
+    width: 500px;
+    background-color: #fff;
+    box-shadow: 4px 4px 4px grey;
+    /* change the position properties here */
+  
+}
+
+#card .header {
+    margin: 0px;
+    background-color: #17a2b8;
+    padding: 50px;
+    
+   
+   
+  }
+
+  .info{
+    padding: 100px;
+  }
+  .user{
+    border:  white;
+    width: 60px;
+    height: 60px;
+    position: relative;
+    left: 10px;
+    top: -25px;
+  }

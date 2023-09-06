@@ -1,0 +1,321 @@
+-creatind db: use my_first_db
+              switched to db my_first_db
+
+-creating students collection: db.createCollection("students")
+
+creating 5 students:  
+db.students.insert({name:"amine",home_state:"california",lucky_number:7,birthday:{month:8,day:4,year:1999}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"nassim",home_state:"washington",lucky_number:69,birthday:{month:7,day:5,year:1997}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"wael",home_state:"washington",lucky_number:9,birthday:{month:4,day:4,year:1995}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"ons",home_state:"california",lucky_number:13,birthday:{month:2,day:9,year:1990}})
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({name:"trey",home_state:"newyork",lucky_number:20,birthday:{month:2,day:9,year:1990}})
+WriteResult({ "nInserted" : 1 })
+
+get all students:
+> db.students.find().pretty()
+{
+        "_id" : ObjectId("64eea27bbbca074e4f40d877"),
+        "name" : "amine",
+        "home_state" : "california",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 8,
+                "day" : 4,
+                "year" : 1999
+        }
+}
+{
+        "_id" : ObjectId("64eea2b6bbca074e4f40d878"),
+        "name" : "nassim",
+        "home_state" : "washington",
+        "lucky_number" : 69,
+        "birthday" : {
+                "month" : 7,
+                "day" : 5,
+                "year" : 1997
+        }
+}
+{
+        "_id" : ObjectId("64eea2d1bbca074e4f40d879"),
+        "name" : "wael",
+        "home_state" : "washington",
+        "lucky_number" : 9,
+        "birthday" : {
+                "month" : 4,
+                "day" : 4,
+                "year" : 1995
+        }
+}
+{
+        "_id" : ObjectId("64eea30abbca074e4f40d87a"),
+        "name" : "ons",
+        "home_state" : "california",
+        "lucky_number" : 13,
+        "birthday" : {
+                "month" : 2,
+                "day" : 9,
+                "year" : 1990
+        }
+}
+{
+        "_id" : ObjectId("64eea330bbca074e4f40d87b"),
+        "name" : "trey",
+        "home_state" : "newyork",
+        "lucky_number" : 20,
+        "birthday" : {
+                "month" : 2,
+                "day" : 9,
+                "year" : 1990
+        }
+}
+
+sudents from washington or california:
+db.students.find({home_state:{$in:["washington","california"]}}).pretty()
+
+{
+        "_id" : ObjectId("64eea27bbbca074e4f40d877"),
+        "name" : "amine",
+        "home_state" : "california",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 8,
+                "day" : 4,
+                "year" : 1999
+        }
+}
+{
+        "_id" : ObjectId("64eea2b6bbca074e4f40d878"),
+        "name" : "nassim",
+        "home_state" : "washington",
+        "lucky_number" : 69,
+        "birthday" : {
+                "month" : 7,
+                "day" : 5,
+                "year" : 1997
+        }
+}
+{
+        "_id" : ObjectId("64eea2d1bbca074e4f40d879"),
+        "name" : "wael",
+        "home_state" : "washington",
+        "lucky_number" : 9,
+        "birthday" : {
+                "month" : 4,
+                "day" : 4,
+                "year" : 1995
+        }
+}
+{
+        "_id" : ObjectId("64eea30abbca074e4f40d87a"),
+        "name" : "ons",
+        "home_state" : "california",
+        "lucky_number" : 13,
+        "birthday" : {
+                "month" : 2,
+                "day" : 9,
+                "year" : 1990
+        }
+}
+
+get sutdents where lucky number greater than 3 :
+db.students.find({lucky_number:{$gt:3}).pretty()
+{
+        "_id" : ObjectId("64eea27bbbca074e4f40d877"),
+        "name" : "amine",
+        "home_state" : "california",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 8,
+                "day" : 4,
+                "year" : 1999
+        }
+}
+{
+        "_id" : ObjectId("64eea2b6bbca074e4f40d878"),
+        "name" : "nassim",
+        "home_state" : "washington",
+        "lucky_number" : 69,
+        "birthday" : {
+                "month" : 7,
+                "day" : 5,
+                "year" : 1997
+        }
+}
+{
+        "_id" : ObjectId("64eea2d1bbca074e4f40d879"),
+        "name" : "wael",
+        "home_state" : "washington",
+        "lucky_number" : 9,
+        "birthday" : {
+                "month" : 4,
+                "day" : 4,
+                "year" : 1995
+        }
+}
+{
+        "_id" : ObjectId("64eea30abbca074e4f40d87a"),
+        "name" : "ons",
+        "home_state" : "california",
+        "lucky_number" : 13,
+        "birthday" : {
+                "month" : 2,
+                "day" : 9,
+                "year" : 1990
+        }
+}
+{
+        "_id" : ObjectId("64eea330bbca074e4f40d87b"),
+        "name" : "trey",
+        "home_state" : "newyork",
+        "lucky_number" : 20,
+        "birthday" : {
+                "month" : 2,
+                "day" : 9,
+                "year" : 1990
+        }
+}
+
+lucky number between 1 and 9 :
+db.students.find({lucky_number:{$gte:1, $lte:9}).pretty()
+{
+        "_id" : ObjectId("64eea27bbbca074e4f40d877"),
+        "name" : "amine",
+        "home_state" : "california",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 8,
+                "day" : 4,
+                "year" : 1999
+        }
+}
+{
+        "_id" : ObjectId("64eea2b6bbca074e4f40d878"),
+        "name" : "nassim",
+        "home_state" : "washington",
+        "lucky_number" : 69,
+        "birthday" : {
+                "month" : 7,
+                "day" : 5,
+                "year" : 1997
+        }
+}
+{
+        "_id" : ObjectId("64eea2d1bbca074e4f40d879"),
+        "name" : "wael",
+        "home_state" : "washington",
+        "lucky_number" : 9,
+        "birthday" : {
+                "month" : 4,
+                "day" : 4,
+                "year" : 1995
+        }
+}
+{
+        "_id" : ObjectId("64eea30abbca074e4f40d87a"),
+        "name" : "ons",
+        "home_state" : "california",
+        "lucky_number" : 13,
+        "birthday" : {
+                "month" : 2,
+                "day" : 9,
+                "year" : 1990
+        }
+}
+{
+        "_id" : ObjectId("64eea330bbca074e4f40d87b"),
+        "name" : "trey",
+        "home_state" : "newyork",
+        "lucky_number" : 20,
+        "birthday" : {
+                "month" : 2,
+                "day" : 9,
+                "year" : 1990
+        }
+}
+
+add interst to all students:
+ db.students.updateMany({}, {$set: {interests: ['coding', 'brunch', 'MongoDB']}})
+{
+        "_id" : ObjectId("64eea27bbbca074e4f40d877"),
+        "name" : "amine",
+        "home_state" : "california",
+        "lucky_number" : 7,
+        "birthday" : {
+                "month" : 8,
+                "day" : 4,
+                "year" : 1999
+        },
+	"interests" : [
+		"coding",
+		"brunch",
+		"MongoDB"
+	]
+}
+{
+        "_id" : ObjectId("64eea2b6bbca074e4f40d878"),
+        "name" : "nassim",
+        "home_state" : "washington",
+        "lucky_number" : 69,
+        "birthday" : {
+                "month" : 7,
+                "day" : 5,
+                "year" : 1997
+        },
+	"interests" : [
+		"coding",
+		"brunch",
+		"MongoDB"
+	]
+}
+{
+        "_id" : ObjectId("64eea2d1bbca074e4f40d879"),
+        "name" : "wael",
+        "home_state" : "washington",
+        "lucky_number" : 9,
+        "birthday" : {
+                "month" : 4,
+                "day" : 4,
+                "year" : 1995
+        },
+	"interests" : [
+		"coding",
+		"brunch",
+		"MongoDB"
+	]
+}
+{
+        "_id" : ObjectId("64eea30abbca074e4f40d87a"),
+        "name" : "ons",
+        "home_state" : "california",
+        "lucky_number" : 13,
+        "birthday" : {
+                "month" : 2,
+                "day" : 9,
+                "year" : 1990
+        },
+	"interests" : [
+		"coding",
+		"brunch",
+		"MongoDB"
+	]
+}
+{
+        "_id" : ObjectId("64eea330bbca074e4f40d87b"),
+        "name" : "trey",
+        "home_state" : "newyork",
+        "lucky_number" : 20,
+        "birthday" : {
+                "month" : 2,
+                "day" : 9,
+                "year" : 1990
+        },
+	"interests" : [
+		"coding",
+		"brunch",
+		"MongoDB"
+	]
+}
